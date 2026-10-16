@@ -1,5 +1,7 @@
 # Contributing
 
+English | [简体中文](CONTRIBUTING_zh.md)
+
 SideByVR Viewer is an Android app for viewing existing local SBS media. Keep contributions focused on browsing, stereo presentation, input, accessibility, performance and tests.
 
 ## Development

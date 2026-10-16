@@ -1,5 +1,23 @@
 # Controls and limitations
 
+English | [简体中文](usage_zh.md)
+
+## What you need
+
+![Android phone, Bluetooth gamepad and phone VR viewer](images/vr-equipment.jpg)
+
+*Equipment illustration. The fantasy scene is promotional artwork, not an app screenshot or actual viewing result.*
+
+| Item | Preparation |
+| --- | --- |
+| Android phone | Install SideByVR Viewer and download SBS files into a local folder. |
+| Bluetooth gamepad | Pair it in Android settings first; two analog sticks and A/B/X/Y buttons are recommended. |
+| Phone VR viewer | Choose a viewer that fits your phone, insert the phone horizontally and adjust the lenses for clarity. |
+
+You can browse in phone mode before inserting the phone into the VR viewer. Controller mappings and viewing comfort still need testing on your own hardware.
+
+Download ready-made media from [online SBS samples](samples/README.md). Save the **SBS original**, not the single-eye thumbnail, then authorize its folder in the app. Downloads require a browser/network connection; subsequent local viewing uses the downloaded file.
+
 ## Getting started
 
 Select a local folder with the Android system picker. The app saves the granted directory and last browsing location. **Continue last folder** becomes available while that permission remains valid. Android may restrict access to particular system directories.
@@ -10,7 +28,9 @@ The browser shows subfolders, ZIP archives and a group of SBS media in the curre
 
 - Menus: D-pad / left stick / arrow keys select; A, Y or Enter open; LB switches phone/VR menu layout; B or Escape returns/exits.
 - Folder browser: X or Backspace goes to the parent folder; RB or R toggles ordinary images as SBS.
-- Viewer: arrow left/right changes media; arrow up/down adjusts zoom; I/K and J/L move the image; LB/RB adjusts eye separation; Y resets; B or Escape returns.
+- Image viewer: left stick up/down adjusts zoom; left stick left/right or arrow keys left/right changes media; right stick pans; gamepad A/X adjusts eye separation; gamepad Y resets; RB toggles the controls overlay; B or Escape returns.
+- Video viewer: D-pad / arrow left/right seeks by five seconds; up/down changes volume; Y toggles playback. Left stick, right stick, A/X and RB retain their viewer roles.
+- Keyboard support is partial: arrow left/right and Escape are handled, while zoom, pan, eye separation and overlay control currently require a gamepad or applicable settings. I/K/J/L and keyboard arrow up/down do not move or zoom still images.
 - The viewer also accepts continuous joystick input. Physical-controller mappings are still awaiting device regression testing.
 
 Touch is available for menu selection. A controller or keyboard is recommended for viewing controls. The picture is a flat SBS presentation; this migration does not claim head tracking, lens-distortion correction or spherical 180/360 video projection.
@@ -23,7 +43,7 @@ Video codec compatibility, large ZIP behavior and the actual phone/controller co
 
 ## Format support and verification
 
-| Input | Browser behavior | Verification / limits |
+| Input | Browser behavior | Verification |
 | --- | --- | --- |
 | `.sbs.jpg`, `.sbs.jpeg`, `.sbs.png` | Included by default, any letter case | Synthetic JPEG/PNG decode and left/right color split tested automatically |
 | Ordinary `.jpg`, `.jpeg`, `.png` | Explicit Images as SBS opt-in required | Folder opt-in, actual decode, return and opt-out tested automatically |
