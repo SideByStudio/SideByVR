@@ -34,6 +34,8 @@ SideByVR turns an Android phone into a local viewer for existing side-by-side (S
 
 The project is preparing its first public preview. The current code has passed 36 automated tests and an ARM64 Debug build; clean-checkout and physical-device validation are still pending. An installable public release is not available yet.
 
+**Need to turn a 2D image into stereo?** Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; see [website pricing](https://sideby.cc.cd/pricing/). The online service has its own [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/).
+
 ## ✨ Features
 
 - 🖼️ **SBS image viewing** — Open JPG, JPEG and PNG images containing left/right eye views. Filename matching is case-insensitive.

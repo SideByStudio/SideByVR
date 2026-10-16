@@ -34,6 +34,8 @@ SideByVR 是一个 Android 本地 SBS（左右并排）图片与视频查看器�
 
 项目正在准备首个公开预览版。当前代码已通过 36 项自动化测试和 ARM64 Debug 构建，干净检出构建与真机回归仍待完成；暂未提供公开下载安装包。
 
+**需要把 2D 图片转成立体图？** 前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；付费方案见[网站定价](https://sideby.cc.cd/zh/pricing/)。在线服务适用其[服务条款](https://sideby.cc.cd/zh/terms/)及[隐私政策](https://sideby.cc.cd/zh/privacy/)。
+
 ## ✨ 功能特性
 
 - 🖼️ **SBS 图片查看** — 打开包含左右眼画面的 JPG、JPEG、PNG 图片，文件名匹配不区分大小写。

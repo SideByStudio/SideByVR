@@ -66,3 +66,12 @@ Catalog snapshot: 2026-10-16 · 18 images · [Catalog API](https://sideby.cc.cd/
     <td align="center" width="33%"><a href="https://assets.sideby.cc.cd/samples/v2/design-studies/poster_empty_pool_duck_01.sbs.jpg"><img src="https://assets.sideby.cc.cd/samples/v2/_thumbs/design-studies/poster_empty_pool_duck_01.jpg" alt="Poster Empty Pool Duck — single-eye preview" width="240"></a><br><strong>Poster Empty Pool Duck</strong><br><a href="https://assets.sideby.cc.cd/samples/v2/design-studies/poster_empty_pool_duck_01.sbs.jpg">Download SBS</a> · 385 KiB</td>
   </tr>
 </table>
+
+## Convert your own 2D images to SBS
+
+1. Open the [SideByVR online converter](https://sideby.cc.cd/create/) in a browser and sign in with Google. New accounts receive 10 welcome Credits.
+2. Upload a JPG you have the rights to process. Each successful image costs 1 Credit; failed jobs release the reservation.
+3. Download the full SBS original from your private library to your phone. Inputs are retained for up to 24 hours and results for up to 30 days; download promptly.
+4. Authorize the download folder in the viewer. Use a `.sbs.jpg` filename or enable ordinary images as SBS. This switch only changes file selection; it does not generate stereo content.
+
+Online conversion is an optional, separate service governed by its [pricing](https://sideby.cc.cd/pricing/), [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/). Local viewing requires no account or Credits.

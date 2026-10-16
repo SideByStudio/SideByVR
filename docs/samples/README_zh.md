@@ -66,3 +66,12 @@
     <td align="center" width="33%"><a href="https://assets.sideby.cc.cd/samples/v2/design-studies/poster_empty_pool_duck_01.sbs.jpg"><img src="https://assets.sideby.cc.cd/samples/v2/_thumbs/design-studies/poster_empty_pool_duck_01.jpg" alt="空泳池与鸭子 — 单眼预览" width="240"></a><br><strong>空泳池与鸭子</strong><br><a href="https://assets.sideby.cc.cd/samples/v2/design-studies/poster_empty_pool_duck_01.sbs.jpg">下载 SBS 原图</a> · 385 KiB</td>
   </tr>
 </table>
+
+## 将自己的 2D 图片转为 SBS
+
+1. 在浏览器打开 [SideByVR 在线转换](https://sideby.cc.cd/zh/create/)，使用 Google 账号登录；新账号获赠 10 Credits。
+2. 上传你拥有处理权利的 JPG。成功生成一张图片扣除 1 Credit；处理失败会释放预留积分。
+3. 在网站私人媒体库下载完整 SBS 原图到手机。原图最多保留 24 小时，生成结果最多保留 30 天，请及时下载。
+4. 在 Viewer 授权下载目录。使用 `.sbs.jpg` 文件名，或开启普通图片 SBS 显示；该开关只影响文件选择，不会生成立体内容。
+
+在线转换是可选的独立服务，适用网站的[定价](https://sideby.cc.cd/zh/pricing/)、[服务条款](https://sideby.cc.cd/zh/terms/)与[隐私政策](https://sideby.cc.cd/zh/privacy/)。本地查看无需账号或 Credit。
