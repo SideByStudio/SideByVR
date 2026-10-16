@@ -15,7 +15,7 @@
 
 ## 构建
 
-准备 Flutter（Dart >= 3.12.1）、Java 17 和 Android SDK 36。首次迁移使用 Flutter 3.47.0。保留锁文件以固定依赖解析结果。
+准备 Flutter >= 3.47.0、Java 17 和 Android SDK 36。首次迁移使用 Flutter 3.47.0。保留锁文件以固定依赖解析结果。
 
 ```sh
 flutter pub get
@@ -30,4 +30,4 @@ flutter build apk --debug --target-platform android-arm64
 
 ## 许可证
 
-采用 [Apache-2.0](LICENSE)。第三方依赖保留各自的许可证，当前核查范围见 [第三方说明](THIRD_PARTY_NOTICES.md)。
+采用 [Apache-2.0](LICENSE)。第三方依赖保留各自的许可证，设置页的 **Open-source licenses** 可查看随包声明；随包声明与核查范围见 [第三方说明](THIRD_PARTY_NOTICES.md)。

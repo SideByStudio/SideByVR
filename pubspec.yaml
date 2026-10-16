@@ -5,11 +5,11 @@ version: 0.1.0+1
 
 environment:
   sdk: ^3.12.1
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
   path_provider: ^2.1.0
   image: ^4.0.0
   shared_preferences: ^2.2.0
@@ -23,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  licenses:
+    - licenses/additional_notices.txt

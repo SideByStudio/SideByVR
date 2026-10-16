@@ -2,8 +2,15 @@
 *.class
 *.log
 *.pyc
+*.pyo
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
 *.swp
+*.swo
 .DS_Store
+Thumbs.db
 .atom/
 .build/
 .buildlog/
@@ -52,9 +59,19 @@ app.*.map.json
 # Local configuration and credentials
 .env
 .env.*
+!.env.example
+!.env.sample
+!.env.template
 *.jks
 *.keystore
 /android/local.properties
 /android/.gradle/
 /android/.kotlin/
 /tmp/
+
+# APK/AAB delivery files and local crash-symbol archives
+*.apk
+*.aab
+/artifacts/flutter-symbols/
+
+# Keep pubspec.lock, licenses/ distribution notices and brand/ icon sources tracked.

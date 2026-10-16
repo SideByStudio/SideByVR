@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/vr_menu_preferences.dart';
+import '../app_info.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -66,6 +67,19 @@ class _SettingsPageState extends State<SettingsPage> {
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [
+        ListTile(
+          leading: const Icon(Icons.description_outlined),
+          title: const Text('Open-source licenses'),
+          subtitle: const Text('Apache-2.0 and third-party notices'),
+          onTap: () => showLicensePage(
+            context: context,
+            applicationName: appDisplayName,
+            applicationVersion: appVersion,
+            applicationLegalese:
+                'Licensed under Apache-2.0. Third-party components retain their own licenses.',
+          ),
+        ),
+        const SizedBox(height: 20),
         const Text(
           'VR menu',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

@@ -17,7 +17,7 @@ The current filename filter is case-sensitive and accepts only the suffixes abov
 
 ## Build and test
 
-Install Flutter with Dart 3.12.1 or newer, Java 17 and Android SDK 36. The initial migration was prepared with Flutter 3.47.0. Keep the committed dependency lockfile for reproducible dependency resolution.
+Install Flutter 3.47.0 or newer, Java 17 and Android SDK 36. The initial migration was prepared with Flutter 3.47.0. Keep the committed dependency lockfile for reproducible dependency resolution.
 
 ```sh
 flutter pub get
@@ -41,4 +41,4 @@ The debug APK is generated at `build/app/outputs/flutter-apk/app-debug.apk`. No 
 
 ## License
 
-The project is licensed under [Apache-2.0](LICENSE). Third-party dependencies retain their own licenses. See [third-party notices](THIRD_PARTY_NOTICES.md) for the current review scope.
+The project is licensed under [Apache-2.0](LICENSE). Third-party dependencies retain their own licenses. Open **Settings → Open-source licenses** for bundled notices. See [third-party notices](THIRD_PARTY_NOTICES.md) for distributed attribution and review scope.
