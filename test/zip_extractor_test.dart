@@ -46,6 +46,31 @@ void main() {
     expect(media.every((item) => File(item.localPath).existsSync()), isTrue);
   });
 
+  test('普通图片显式开启且缓存不会串用过滤模式', () async {
+    final zip = makeZip('mixed.zip', {
+      'photo.JPEG': [1],
+      'photo.PNG': [2],
+      'stereo.SBS.JPG': [3],
+      'ordinary.mp4': [4],
+      '../escape.PNG': [5],
+    });
+    final destination = '${tempDir.path}/modes';
+    for (final include in [false, true, true, false]) {
+      final media = await ZipExtractor.extract(
+        zipPath: zip.path,
+        destinationPath: destination,
+        includeUnmarkedImages: include,
+      );
+      expect(
+        media.map((m) => m.name).toList(),
+        include
+            ? ['photo.JPEG', 'photo.PNG', 'stereo.SBS.JPG']
+            : ['stereo.SBS.JPG'],
+      );
+    }
+    expect(File('${tempDir.path}/escape.PNG').existsSync(), isFalse);
+  });
+
   test('拒绝路径穿越条目', () async {
     final zip = makeZip('unsafe.zip', {
       '../outside.sbs.jpg': [1],

@@ -2,18 +2,27 @@ import 'dart:io';
 
 enum MediaKind { image, gif, video }
 
+/// Recognizes supported containers, not whether their contents are stereo.
 MediaKind? mediaKindFromName(String name) {
-  if (name.endsWith('.sbs.jpg')) return MediaKind.image;
-  if (name.endsWith('.sbs.mp4')) return MediaKind.video;
+  final lower = name.toLowerCase();
+  if (lower.endsWith('.jpg') ||
+      lower.endsWith('.jpeg') ||
+      lower.endsWith('.png')) {
+    return MediaKind.image;
+  }
+  if (lower.endsWith('.sbs.mp4')) return MediaKind.video;
   return null;
 }
 
-/// 首版只展示严格使用规范后缀的 SBS 媒体。
-///
-/// 合法后缀只有小写 `.sbs.jpg` 和 `.sbs.mp4`。ZIP 文件本身不受此规则
-/// 限制；过滤发生在 ZIP 内部媒体条目上。
+/// Explicit naming is the safe default; ordinary photos require user opt-in.
 bool isSbsMediaName(String name) {
-  return mediaKindFromName(name) != null;
+  final lower = name.toLowerCase();
+  return ['.sbs.jpg', '.sbs.jpeg', '.sbs.png', '.sbs.mp4'].any(lower.endsWith);
+}
+
+bool isViewableMediaName(String name, {bool includeUnmarkedImages = false}) {
+  return isSbsMediaName(name) ||
+      (includeUnmarkedImages && mediaKindFromName(name) == MediaKind.image);
 }
 
 class MediaItem {

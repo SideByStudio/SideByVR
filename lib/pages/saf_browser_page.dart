@@ -63,6 +63,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
   List<SafDocument> _currentMedia = const [];
   int _selectedIndex = 0;
   bool _loading = true;
+  bool _includeUnmarkedImages = false;
   String? _error;
   late bool _isVrMode;
   double _vrMenuScale = VrMenuPreferences.defaultScale;
@@ -105,6 +106,22 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
     await _applyDisplayMode();
     if (mounted) _focusNode.requestFocus();
   }
+
+  Future<void> _toggleImageMode() async {
+    if (_loading || !_acceptGamepadEvents) return;
+    setState(() => _includeUnmarkedImages = !_includeUnmarkedImages);
+    await _loadCurrent();
+    if (mounted) _focusNode.requestFocus();
+  }
+
+  Widget _buildImageModeButton() => TextButton(
+    onPressed: _loading ? null : _toggleImageMode,
+    child: Text(
+      _includeUnmarkedImages
+          ? 'Ordinary images as SBS: ON — R to switch'
+          : 'Include ordinary images as SBS — R',
+    ),
+  );
 
   void _toggleDisplayMode() {
     setState(() => _isVrMode = !_isVrMode);
@@ -209,7 +226,14 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
           );
     final media =
         children
-            .where((item) => !item.isDirectory && isSbsMediaName(item.name))
+            .where(
+              (item) =>
+                  !item.isDirectory &&
+                  isViewableMediaName(
+                    item.name,
+                    includeUnmarkedImages: _includeUnmarkedImages,
+                  ),
+            )
             .toList()
           ..sort(
             (left, right) =>
@@ -220,7 +244,9 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
       if (media.isNotEmpty)
         _BrowserEntry(
           type: _BrowserEntryType.currentMedia,
-          name: 'SBS media in this folder',
+          name: _includeUnmarkedImages
+              ? 'View folder media as SBS'
+              : 'SBS media in this folder',
           count: media.length,
         ),
       ...directories.map(
@@ -261,6 +287,13 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
     if (event is! KeyDownEvent && event is! KeyRepeatEvent) {
       return KeyEventResult.ignored;
     }
+    if (!_acceptGamepadEvents || _loading) return KeyEventResult.handled;
+    if (event is KeyDownEvent &&
+        (event.logicalKey == LogicalKeyboardKey.keyR ||
+            event.logicalKey == LogicalKeyboardKey.gameButtonRight1)) {
+      unawaited(_toggleImageMode());
+      return KeyEventResult.handled;
+    }
     if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
       _moveSelection(-1);
       return KeyEventResult.handled;
@@ -300,6 +333,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
   }
 
   Future<void> _openEntry(_BrowserEntry entry) async {
+    if (_loading || !_acceptGamepadEvents) return;
     switch (entry.type) {
       case _BrowserEntryType.currentMedia:
         await _openCurrentMedia();
@@ -372,6 +406,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
         );
         return ZipExtractor.extract(
           zipPath: zipPath,
+          includeUnmarkedImages: _includeUnmarkedImages,
           destinationPath: destination.path,
         );
       },
@@ -436,14 +471,22 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
       final temp = await getTemporaryDirectory();
       return ZipExtractor.extract(
         zipPath: zipPath,
+        includeUnmarkedImages: _includeUnmarkedImages,
         destinationPath:
             '${temp.path}${Platform.pathSeparator}sideby_zip_cache${Platform.pathSeparator}$id',
       );
     }
     final docs = entry.type == _BrowserEntryType.directory
-        ? (await _storage.listChildren(
-            entry.document!.uri,
-          )).where((d) => !d.isDirectory && isSbsMediaName(d.name)).toList()
+        ? (await _storage.listChildren(entry.document!.uri))
+              .where(
+                (d) =>
+                    !d.isDirectory &&
+                    isViewableMediaName(
+                      d.name,
+                      includeUnmarkedImages: _includeUnmarkedImages,
+                    ),
+              )
+              .toList()
         : _currentMedia;
     final media = <MediaItem>[];
     for (final document in docs) {
@@ -543,10 +586,11 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
                 ),
               ],
             ),
+            _buildImageModeButton(),
             const Divider(height: 1),
             Expanded(child: _buildContent()),
             Text(
-              '↑↓ Select  •  A/Y Open  •  X Parent  •  LB ${_isVrMode ? 'Phone' : 'VR'}  •  B Menu',
+              '↑↓ Select  •  A/Y Open  •  X Parent  •  RB Images as SBS  •  LB ${_isVrMode ? 'Phone' : 'VR'}  •  B Menu',
               style: TextStyle(color: Colors.white54, fontSize: 10),
               textAlign: TextAlign.center,
             ),
@@ -585,6 +629,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
               ],
             ),
           ),
+          _stereo(_buildImageModeButton),
           _stereo(() => const Divider(height: 1)),
           if (_loading)
             _stereo(
@@ -600,7 +645,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
               () => const Padding(
                 padding: EdgeInsets.all(32),
                 child: Text(
-                  'No subfolders, ZIP archives,\nor SBS-named media found.',
+                  'No subfolders, ZIP archives,\nor matching media found.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white60),
                 ),
@@ -616,7 +661,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
             () => Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                '↑↓ Select  •  A/Y Open  •  X Parent  •  LB Phone  •  B Menu',
+                '↑↓ Select  •  A/Y Open  •  X Parent  •  RB Images as SBS  •  LB Phone  •  B Menu',
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white54, fontSize: 10),
               ),
@@ -699,7 +744,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
     if (_entries.isEmpty) {
       return const Center(
         child: Text(
-          'No subfolders, ZIP archives,\nor SBS-named media found.',
+          'No subfolders, ZIP archives,\nor matching media found.',
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white60),
         ),

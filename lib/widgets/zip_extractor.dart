@@ -13,9 +13,10 @@ class ZipExtractor {
   static Future<List<MediaItem>> extract({
     required String zipPath,
     required String destinationPath,
+    bool includeUnmarkedImages = false,
   }) async {
     final destination = Directory(destinationPath);
-    final cached = await _readCache(destination);
+    final cached = await _readCache(destination, includeUnmarkedImages);
     if (cached != null) return cached;
 
     if (await destination.exists()) {
@@ -30,14 +31,19 @@ class ZipExtractor {
           archive.files.where((entry) {
             return entry.isFile &&
                 _safeRelativeName(entry.name) != null &&
-                isSbsMediaName(entry.name);
+                isViewableMediaName(
+                  entry.name,
+                  includeUnmarkedImages: includeUnmarkedImages,
+                );
           }).toList()..sort(
             (left, right) =>
                 left.name.toLowerCase().compareTo(right.name.toLowerCase()),
           );
 
       if (files.isEmpty) {
-        throw StateError('No SBS media found in ZIP');
+        throw StateError(
+          'No matching media found in ZIP. Use Include ordinary images as SBS for JPG/JPEG/PNG without an SBS marker.',
+        );
       }
       if (files.length > _maxMediaFiles) {
         throw StateError(
@@ -77,7 +83,14 @@ class ZipExtractor {
 
       await File(
         '${destination.path}${Platform.pathSeparator}$_manifestName',
-      ).writeAsString(jsonEncode(manifest), flush: true);
+      ).writeAsString(
+        jsonEncode({
+          'version': 2,
+          'includeUnmarkedImages': includeUnmarkedImages,
+          'files': manifest,
+        }),
+        flush: true,
+      );
       return _mediaFromManifest(manifest);
     } catch (_) {
       if (await destination.exists()) {
@@ -89,14 +102,22 @@ class ZipExtractor {
     }
   }
 
-  static Future<List<MediaItem>?> _readCache(Directory destination) async {
+  static Future<List<MediaItem>?> _readCache(
+    Directory destination,
+    bool includeUnmarkedImages,
+  ) async {
     final manifestFile = File(
       '${destination.path}${Platform.pathSeparator}$_manifestName',
     );
     if (!await manifestFile.exists()) return null;
     try {
-      final decoded = jsonDecode(await manifestFile.readAsString()) as List;
-      final manifest = decoded.cast<Map<String, dynamic>>();
+      final decoded =
+          jsonDecode(await manifestFile.readAsString()) as Map<String, dynamic>;
+      if (decoded['version'] != 2 ||
+          decoded['includeUnmarkedImages'] != includeUnmarkedImages) {
+        return null;
+      }
+      final manifest = (decoded['files'] as List).cast<Map<String, dynamic>>();
       final allExist = manifest.every(
         (item) => File(item['path']! as String).existsSync(),
       );
