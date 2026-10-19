@@ -12,6 +12,8 @@ import '../widgets/stereo_menu_row.dart';
 import 'saf_browser_page.dart';
 import 'settings_page.dart';
 import 'about_page.dart';
+import 'help_page.dart';
+import 'faq_page.dart';
 import '../services/vr_menu_preferences.dart';
 
 class HomeMenuPage extends StatefulWidget {
@@ -27,7 +29,7 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
   final _vrMenuPreferences = const VrMenuPreferences();
   final _focusNode = FocusNode();
   final _scrollController = ScrollController();
-  final _itemKeys = List<GlobalKey>.generate(10, (_) => GlobalKey());
+  final _itemKeys = List<GlobalKey>.generate(7, (_) => GlobalKey());
   final _gamepadDecoder = MenuGamepadDecoder();
   StreamSubscription? _gamepadSubscription;
   bool _acceptGamepadEvents = true;
@@ -67,6 +69,18 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
       title: tr(context, 'About'),
       subtitle: tr(context, 'Links, videos and app information'),
       onOpen: _openAbout,
+    ),
+    _MenuAction(
+      icon: Icons.help_outline,
+      title: tr(context, 'Help'),
+      subtitle: tr(context, 'Hardware, files and controls'),
+      onOpen: _openHelp,
+    ),
+    _MenuAction(
+      icon: Icons.quiz_outlined,
+      title: tr(context, 'FAQ'),
+      subtitle: tr(context, 'Common questions and answers'),
+      onOpen: _openFaq,
     ),
     _MenuAction(
       icon: Icons.exit_to_app,
@@ -251,6 +265,20 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
       await Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const AboutPage()));
+    } finally {
+      _acceptGamepadEvents = true;
+      if (mounted) await _restoreMenuInput();
+    }
+  }
+
+  Future<void> _openHelp() => _openInfoPage(const HelpPage());
+
+  Future<void> _openFaq() => _openInfoPage(const FaqPage());
+
+  Future<void> _openInfoPage(Widget page) async {
+    _acceptGamepadEvents = false;
+    try {
+      await Navigator.of(context).push(MaterialPageRoute(builder: (_) => page));
     } finally {
       _acceptGamepadEvents = true;
       if (mounted) await _restoreMenuInput();
