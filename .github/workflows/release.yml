@@ -1,0 +1,121 @@
+name: Android Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Validate and build signed APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.0'
+          channel: stable
+          cache: true
+      - name: Get dependencies
+        run: flutter pub get
+      - name: Validate
+        run: |
+          dart format --output=none --set-exit-if-changed lib test
+          flutter analyze --no-pub
+          flutter test --no-pub
+      - name: Check version
+        shell: bash
+        run: |
+          VERSION=$(awk '/^version:/ {split($2,v,"+"); print v[1]}' pubspec.yaml)
+          echo "APP_VERSION=$VERSION" >> "$GITHUB_ENV"
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            test "$GITHUB_REF_NAME" = "v$VERSION"
+          fi
+      - name: Configure signing
+        env:
+          KEYSTORE: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: |
+          python3 - <<'PY'
+          import os, base64
+          from pathlib import Path
+          for key in ('KEYSTORE', 'STORE_PASSWORD', 'KEY_ALIAS', 'KEY_PASSWORD'):
+              if not os.environ.get(key):
+                  raise SystemExit('缺少签名 Secret: ' + key)
+          def escape(value):
+              return ''.join('\\u%04x' % ord(c) for c in value)
+          keyfile = Path(os.environ['RUNNER_TEMP']) / 'release.jks'
+          keyfile.write_bytes(base64.b64decode(os.environ['KEYSTORE'], validate=True))
+          keyfile.chmod(0o600)
+          values = {'storeFile': str(keyfile), 'storePassword': os.environ['STORE_PASSWORD'],
+                    'keyAlias': os.environ['KEY_ALIAS'], 'keyPassword': os.environ['KEY_PASSWORD']}
+          props = Path('android/key.properties')
+          props.write_text(''.join(k + '=' + escape(v) + '\n' for k, v in values.items()))
+          props.chmod(0o600)
+          PY
+      - name: Build release APK
+        run: flutter build apk --release --target-platform android-arm64 --no-pub
+      - name: Verify signature and permissions
+        shell: bash
+        run: |
+          SDK="${ANDROID_HOME}/build-tools/$(ls "${ANDROID_HOME}/build-tools" | sort -V | tail -n 1)"
+          APK=build/app/outputs/flutter-apk/app-release.apk
+          "$SDK/apksigner" verify --verbose --print-certs "$APK" | tee signature.txt
+          "$SDK/aapt" dump permissions "$APK" > permissions.txt
+          cat permissions.txt
+          if grep -q 'android.permission.INTERNET' permissions.txt; then
+            echo '正式 APK 不应包含联网权限' >&2
+            exit 1
+          fi
+      - name: Prepare assets and release notes
+        run: |
+          mkdir -p release
+          cp build/app/outputs/flutter-apk/app-release.apk "release/SideByVR-viewer-${APP_VERSION}-arm64.apk"
+          cp signature.txt permissions.txt release/
+          (cd release && sha256sum *.apk > SHA256SUMS.txt)
+          {
+            printf '# SideByVR Viewer %s\n\nARM64 Android APK / 独立签名的 ARM64 安装包。\n\n## SHA-256\n\n```text\n' "$APP_VERSION"
+            cat release/SHA256SUMS.txt
+            printf '\n```\n\n验证 / Verify: `sha256sum -c SHA256SUMS.txt`\n'
+          } > release/RELEASE_NOTES.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signed-android-arm64
+          path: release/
+          retention-days: 14
+          if-no-files-found: error
+      - name: Clean signing files
+        if: always()
+        run: rm -f "$RUNNER_TEMP/release.jks" android/key.properties
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: signed-android-arm64
+          path: release
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          body_path: release/RELEASE_NOTES.md
+          files: |
+            release/*.apk
+            release/SHA256SUMS.txt
+            release/signature.txt
+            release/permissions.txt

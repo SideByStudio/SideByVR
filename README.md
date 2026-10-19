@@ -42,6 +42,10 @@ English | [简体中文](README_zh.md)
 
 SideByVR turns an Android phone into a local viewer for existing side-by-side (SBS) images and videos. Select a folder, browse your collections, and use a gamepad to adjust the view. Local viewing requires no account, cloud API configuration or paid credits.
 
+**Independent, free and open source:** this Viewer is a standalone local viewing tool. The optional online SBS converter is a separate cloud service; no account, subscription or converter purchase is required to use the Viewer.
+
+**100% local, offline viewing: no Internet permission and no collection of your private photos.** The distributed release Viewer processes and caches authorized media on your device and does not upload images, videos or browsing history. External links open in your browser; those websites and any cloud-backed Android document providers have their own network behavior and privacy policies. Flutter debug/profile builds may include Internet permission for development tools.
+
 The first public preview is being prepared. Release announcements and APK downloads will be published on the GitHub Releases page linked above. The separate SideByVR app is available on Google Play.
 
 **Need to turn a 2D image into stereo?** Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; see [website pricing](https://sideby.cc.cd/pricing/). The online service has its own [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/).
@@ -132,5 +136,8 @@ licenses/        # Supplemental distribution notices
 ```
 
 ## 📄 License
+
+Copyright 2026 SideByStudio contributors.
+
 
 Application code, the original launcher icon and generated sample media are licensed under **[Apache License 2.0](LICENSE)**. See [brand documentation](brand/README.md) for the icon source.
