@@ -15,15 +15,15 @@
 
 <p align="center">
   <strong>下载 Android 安装包</strong><br>
-  <sub>开源 Viewer APK 已发布到 GitHub Releases · SideByVR 已上架 Google Play</sub>
+  <sub>开源 Viewer APK 准备发布 · SideByVR 已上架 Google Play</sub>
 </p>
 
 
 <p align="center">
-  <a href="https://github.com/sidebyvr/sidebyvr/releases/latest/download/SideByVR-viewer-0.1.0-arm64.apk">
+  <a href="https://github.com/SideByStudio/sidebyvr/releases">
     <img
-      src="https://img.shields.io/badge/Android%20APK-%E4%B8%8B%E8%BD%BD-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
-      alt="下载 Android APK"
+      src="https://img.shields.io/badge/Android%20APK-Coming%20soon-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
+      alt="Android APK — 准备发布"
     >
   </a>
   <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=zh-CN">
@@ -42,7 +42,7 @@
 
 SideByVR 是一个 Android 本地 SBS（左右并排）图片与视频查看器。选择文件夹、浏览图集，再通过手柄调整双目画面。本地查看无需账号、云端 API 配置或付费积分。
 
-首个公开预览版可通过上方 GitHub Releases 下载按钮获取。当前代码已通过 36 项自动化测试和 ARM64 Debug 构建，干净检出构建与真机回归仍待完成；本开源 Viewer 暂未提供独立 APK；已上架的 SideByVR 应用可通过上方 Google Play 按钮下载。
+首个公开预览版正在准备发布。发布公告与 APK 下载将放在上方 GitHub Releases 页面；独立的 SideByVR 商店版可通过 Google Play 按钮下载。
 
 **需要把 2D 图片转成立体图？** 前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；付费方案见[网站定价](https://sideby.cc.cd/zh/pricing/)。在线服务适用其[服务条款](https://sideby.cc.cd/zh/terms/)及[隐私政策](https://sideby.cc.cd/zh/privacy/)。
 
@@ -116,7 +116,7 @@ flutter run
 flutter build apk --debug --target-platform android-arm64
 ```
 
-APK 生成于 `build/app/outputs/flutter-apk/app-debug.apk`。构建无需 `.env` 或生产凭据，应用标识为 `com.sidebyvr.viewer`，可与商店版并存。正式发布签名尚未配置；Debug APK 用于开发测试。
+APK 生成于 `build/app/outputs/flutter-apk/app-debug.apk`。构建无需 `.env` 或生产凭据，应用标识为 `com.sidebyvr.viewer`，可与商店版并存。正式发布使用专用私密签名密钥，流程见[发布说明](docs/releasing-android.md)；Debug APK 用于开发测试。
 
 ```text
 lib/
@@ -135,4 +135,4 @@ licenses/        # 分发时需保留的补充声明
 
 应用代码、原创启动图标与生成的样例媒体均采用 **[Apache License 2.0](LICENSE)**。图标母版与说明见 [brand](brand/README_zh.md)。
 
-第三方依赖保留各自的许可证，分发时需保留适用声明，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES_zh.md)。应用内可通过 **Settings → Open-source licenses** 查看随包许可证。
+第三方依赖保留各自的许可证，分发时需保留适用声明，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES_zh.md)。设置中的开源许可证项不可点击；随包许可证仍保留，完整声明可在上述仓库文档中查看。
