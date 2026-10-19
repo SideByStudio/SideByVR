@@ -43,11 +43,10 @@
 
 </div>
 
-SideByVR 是 Android 本地 SBS（左右并排）图片与视频查看器。Viewer 是**完全独立、免费、开源的本地查看工具**，无需账号、订阅或购买转换服务。在线 SBS 转换网站是可选的独立云端服务，不是 Viewer 的运行依赖。
+SideByVR 是 Android 本地 SBS（左右并排）图片与视频查看器。Viewer 是**完全独立、免费、开源的本地查看工具**，无需账号、订阅或购买转换服务。
 
-预览版 v0.1.1 已发布，可在 GitHub Releases 下载本地构建、正式签名的 ARM64 APK 和校验文件；设备兼容性仍在测试中。独立的 SideByVR 商店版可通过 Google Play 按钮下载。
 
-**100% 纯本地离线运行，无联网权限，不收集任何相册隐私。** 此说明针对正式发布的 Viewer APK：应用在本机处理和缓存授权媒体，不上传图片、视频或浏览记录。外部链接会打开浏览器；这些网站以及系统选择器中的云端文档提供方具有各自的联网行为和隐私政策。Flutter Debug/Profile 构建可能为开发工具包含联网权限。
+**100% 纯本地离线运行，无联网权限，不收集任何相册隐私。** 此说明针对正式发布的 Viewer APK：应用在本机处理和缓存授权媒体，不上传图片、视频或浏览记录。
 
 ## ✨ 功能特性
 
@@ -100,10 +99,7 @@ SBS（Side-by-Side，左右并排）图片格式是一种简单、通用的 VR �
 
 **如何获得 SBS 图片（2D 转 3D）**
 
-1. **SideByVR 在线转换网站**
-前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；
-
-2. **社区工具**
+**社区工具**
 另一种方式是通过社区开源工具生成，例如 [ComfyUI_SSStereoscope](https://github.com/SamSeenX/ComfyUI_SSStereoscope)。
 
 

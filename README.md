@@ -45,11 +45,10 @@ English | [简体中文](README_zh.md)
 
 SideByVR turns an Android phone into a local viewer for existing side-by-side (SBS) images and videos. Select a folder, browse your collections, and use a gamepad to adjust the view. Local viewing requires no account, cloud API configuration or paid credits.
 
-**Independent, free and open source:** this Viewer is a standalone local viewing tool. The optional online SBS converter is a separate cloud service; no account, subscription or converter purchase is required to use the Viewer.
+**Independent, free and open source:** this Viewer is a standalone local viewing tool.
 
-**100% local, offline viewing: no Internet permission and no collection of your private photos.** The distributed release Viewer processes and caches authorized media on your device and does not upload images, videos or browsing history. External links open in your browser; those websites and any cloud-backed Android document providers have their own network behavior and privacy policies. Flutter debug/profile builds may include Internet permission for development tools.
+**100% local, offline viewing: no Internet permission and no collection of your private photos.** The distributed release Viewer processes and caches authorized media on your device and does not upload images, videos or browsing history. 
 
-Preview v0.1.1 is available on GitHub Releases. Download the locally built, release-signed ARM64 APK and checksum; device compatibility testing is ongoing. The separate SideByVR app is available on Google Play.
 
 ## ✨ Features
 
@@ -102,10 +101,7 @@ SBS (Side-by-Side) image format is a simple and general VR image format. Unlike 
 
 **How to Get SBS Image:(2D image to 3D)**
 
-1. **SideByVR Online Converter**
-Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; 
-
-2. **Community Tools**
+**Community Tools**
 Alternatively, you can generate SBS images using community tools such as [ComfyUI_SSStereoscope](https://github.com/SamSeenX/ComfyUI_SSStereoscope).
 
 ## 🚀 Development
