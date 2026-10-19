@@ -32,8 +32,11 @@ English | [简体中文](README_zh.md)
 </p>
 
 <p align="center">
+  <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw"><img src="https://img.shields.io/badge/YouTube-%40SideByVR-FF0000?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube · @SideByVR"></a>
+</p>
+
+<p align="center">
   <a href="https://sideby.cc.cd/">🌐 Official website</a>
-  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw"><img src="https://img.shields.io/badge/YouTube-%40SideByVR-FF0000?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube · @SideByVR"></a>
   · <a href="https://www.youtube.com/watch?v=qj0_QTt65IU">▶ Video guide</a>
   · <a href="https://www.youtube.com/shorts/0pdG-4gmOvk">📱 Shorts preview</a>
 </p>

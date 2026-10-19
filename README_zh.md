@@ -15,15 +15,15 @@
 
 <p align="center">
   <strong>下载 Android 安装包</strong><br>
-  <sub>开源 Viewer APK 准备发布 · SideByVR 已上架 Google Play</sub>
+  <sub>开源 Viewer APK 发布 · SideByVR 已上架 Google Play</sub>
 </p>
 
 
 <p align="center">
   <a href="https://github.com/SideByStudio/sidebyvr/releases">
     <img
-      src="https://img.shields.io/badge/Android%20APK-Coming%20soon-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
-      alt="Android APK — 准备发布"
+      src="https://img.shields.io/badge/Android%20APK-v0.1.0-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
+      alt="Android APK — v0.1.0"
     >
   </a>
   <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=zh-CN">
@@ -32,8 +32,11 @@
 </p>
 
 <p align="center">
+  <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw"><img src="https://img.shields.io/badge/YouTube-%40SideByVR-FF0000?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube · @SideByVR"></a>
+</p>
+
+<p align="center">
   <a href="https://sideby.cc.cd/">🌐 官方网站</a>
-  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw"><img src="https://img.shields.io/badge/YouTube-%40SideByVR-FF0000?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube · @SideByVR"></a>
   · <a href="https://www.youtube.com/watch?v=qj0_QTt65IU">▶ 使用指南</a>
   · <a href="https://www.youtube.com/shorts/0pdG-4gmOvk">📱 竖屏宣传短片</a>
 </p>
