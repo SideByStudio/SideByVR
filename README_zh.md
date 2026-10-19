@@ -33,6 +33,9 @@
 
 <p align="center">
   <a href="https://sideby.cc.cd/">🌐 官方网站</a>
+  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw">YouTube · @SideByVR</a>
+  · <a href="https://www.youtube.com/watch?v=qj0_QTt65IU">▶ 使用指南</a>
+  · <a href="https://www.youtube.com/shorts/0pdG-4gmOvk">📱 竖屏宣传短片</a>
 </p>
 
 </div>
@@ -79,6 +82,7 @@ SideByVR 是一个 Android 本地 SBS（左右并排）图片与视频查看器�
 
 | 文档 | 内容 |
 | --- | --- |
+| [视频使用指南](https://www.youtube.com/watch?v=qj0_QTt65IU) | 在 YouTube 观看 SideByVR 使用指南 |
 | [使用说明](docs/usage_zh.md) | 目录授权、操作方式、格式支持与已知限制 |
 | [在线 SBS 样例](docs/samples/README_zh.md) | 在线缩略图预览与完整 SBS 原图下载链接 |
 | [反馈说明](docs/feedback_zh.md) | 问题报告和设备兼容性反馈 |

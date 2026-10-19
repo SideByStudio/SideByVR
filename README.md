@@ -33,6 +33,9 @@ English | [简体中文](README_zh.md)
 
 <p align="center">
   <a href="https://sideby.cc.cd/">🌐 Official website</a>
+  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw">YouTube · @SideByVR</a>
+  · <a href="https://www.youtube.com/watch?v=qj0_QTt65IU">▶ Video guide</a>
+  · <a href="https://www.youtube.com/shorts/0pdG-4gmOvk">📱 Shorts preview</a>
 </p>
 
 </div>
@@ -79,6 +82,7 @@ The current viewer assumes **Full-SBS, left image for the left eye**. Half-SBS c
 
 | Document | Contents |
 | --- | --- |
+| [Video guide](https://www.youtube.com/watch?v=qj0_QTt65IU) | Watch the SideByVR getting-started guide on YouTube |
 | [Usage guide](docs/usage.md) | Folder access, controls, supported formats and known limitations |
 | [Online SBS samples](docs/samples/README.md) | Remote thumbnail gallery and full SBS image download links |
 | [Feedback](docs/feedback.md) | Bug reports and device compatibility information |
