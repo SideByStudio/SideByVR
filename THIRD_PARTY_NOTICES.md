@@ -22,6 +22,8 @@ The [launcher icon master](brand/sideby-vr-icon-master.svg) was created by the p
 
 ## In-app access and distribution
 
-Open **Settings → Open-source licenses** to inspect the Flutter-generated registry. The project's Apache-2.0 license and package notices are collected by Flutter. [Supplemental notices](licenses/additional_notices.txt) add image/archive attribution, Material Icons, native Apache-2.0 components, the extracted ExifInterface notice and protobuf attribution through `flutter.licenses` in `pubspec.yaml`.
+The **Settings → Open-source licenses** item is informational and non-clickable. Flutter-generated notices remain bundled in the APK. The project's Apache-2.0 license and package notices are collected by Flutter. [Supplemental notices](licenses/additional_notices.txt) add image/archive attribution, Material Icons, native Apache-2.0 components, the extracted ExifInterface notice and protobuf attribution through `flutter.licenses` in `pubspec.yaml`.
 
 Preserve these notices when distributing the app. Updating dependencies, Flutter, build mode or ABI requires refreshing the inventory and inspecting the resulting APK notice bundle. POM declarations and retained notices provide a documented dependency review; they are not proof of authorship of all upstream code or patent clearance for device-provided media codecs.
+
+The language feature adds Flutter SDK localizations and intl 0.20.3 (BSD-3-Clause); Flutter collects their license notices automatically.

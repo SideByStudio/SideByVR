@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'image_source.dart';
@@ -93,16 +94,16 @@ class _StereoViewState extends State<StereoView> {
               Expanded(
                 child: Center(
                   child: Text(
-                    '加载中',
-                    style: TextStyle(color: Colors.white38, fontSize: 14),
+                    tr(context, 'Loading'),
+                    style: const TextStyle(color: Colors.white38, fontSize: 14),
                   ),
                 ),
               ),
               Expanded(
                 child: Center(
                   child: Text(
-                    '加载中',
-                    style: TextStyle(color: Colors.white38, fontSize: 14),
+                    tr(context, 'Loading'),
+                    style: const TextStyle(color: Colors.white38, fontSize: 14),
                   ),
                 ),
               ),

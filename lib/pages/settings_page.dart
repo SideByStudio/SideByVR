@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/vr_menu_preferences.dart';
-import '../app_info.dart';
+import '../l10n/app_language.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -63,29 +63,37 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('Settings')),
+    appBar: AppBar(title: Text(tr(context, 'Settings'))),
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [
         ListTile(
-          leading: const Icon(Icons.description_outlined),
-          title: const Text('Open-source licenses'),
-          subtitle: const Text('Apache-2.0 and third-party notices'),
-          onTap: () => showLicensePage(
-            context: context,
-            applicationName: appDisplayName,
-            applicationVersion: appVersion,
-            applicationLegalese:
-                'Licensed under Apache-2.0. Third-party components retain their own licenses.',
+          leading: const Icon(Icons.language),
+          title: Text(tr(context, 'Language')),
+          trailing: DropdownButton<String>(
+            value: Localizations.localeOf(context).languageCode,
+            items: const [
+              DropdownMenuItem(value: 'en', child: Text('English')),
+              DropdownMenuItem(value: 'zh', child: Text('简体中文')),
+            ],
+            onChanged: (value) {
+              if (value != null) AppLanguage.instance.setLanguage(value);
+            },
           ),
         ),
+        ListTile(
+          leading: const Icon(Icons.description_outlined),
+          title: Text(tr(context, 'Open-source licenses')),
+          subtitle: Text(tr(context, 'Apache-2.0 and third-party notices')),
+          enabled: false,
+        ),
         const SizedBox(height: 20),
-        const Text(
-          'VR menu',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        Text(
+          tr(context, 'VR menu'),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
-        Text('双栏菜单大小：${(_scale * 100).round()}%'),
+        Text('${tr(context, 'Menu size')}: ${(_scale * 100).round()}%'),
         Slider(
           value: _scale,
           min: 0.5,
@@ -94,16 +102,21 @@ class _SettingsPageState extends State<SettingsPage> {
           label: '${(_scale * 100).round()}%',
           onChanged: _setScale,
         ),
-        const Text(
-          '仅影响 VR 横屏下的左右双栏菜单，手机竖屏和查看器画面不受影响。',
-          style: TextStyle(color: Colors.white70),
+        Text(
+          tr(
+            context,
+            'Only affects the VR split menus, not the phone menu or viewer image.',
+          ),
+          style: const TextStyle(color: Colors.white70),
         ),
         const SizedBox(height: 28),
-        const Text(
-          'SBS viewer',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        Text(
+          tr(context, 'SBS viewer'),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        Text('Viewer Scale：${(_viewerScale * 100).round()}%'),
+        Text(
+          '${tr(context, 'Viewer scale')}: ${(_viewerScale * 100).round()}%',
+        ),
         Slider(
           value: _viewerScale,
           min: 0.5,
@@ -111,7 +124,7 @@ class _SettingsPageState extends State<SettingsPage> {
           divisions: 10,
           onChanged: (v) => _setViewer(scale: v),
         ),
-        Text('Zoom：${_zoom.toStringAsFixed(1)}x'),
+        Text('${tr(context, 'Zoom')}: ${_zoom.toStringAsFixed(1)}x'),
         Slider(
           value: _zoom,
           min: 0.5,
@@ -119,7 +132,7 @@ class _SettingsPageState extends State<SettingsPage> {
           divisions: 50,
           onChanged: (v) => _setViewer(zoom: v),
         ),
-        Text('IPD：${_ipd.toStringAsFixed(0)} px'),
+        Text('${tr(context, 'Eye separation')}: ${_ipd.toStringAsFixed(0)} px'),
         Slider(
           value: _ipd,
           min: -50,
@@ -128,7 +141,7 @@ class _SettingsPageState extends State<SettingsPage> {
           onChanged: (v) => _setViewer(ipd: v),
         ),
         SwitchListTile(
-          title: const Text('显示 RB 提示 UI'),
+          title: Text(tr(context, 'Show controller hints (RB)')),
           value: _showUi,
           onChanged: (v) => _setViewer(showUi: v),
         ),

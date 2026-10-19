@@ -64,3 +64,11 @@ These automated checks use generated color images and mocked Android storage cal
 4. Authorize the download folder in the viewer. Use a `.sbs.jpg` filename or enable ordinary images as SBS. This switch only changes file selection; it does not generate stereo content.
 
 Online conversion is an optional, separate service governed by its [pricing](https://sideby.cc.cd/pricing/), [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/). Local viewing requires no account or Credits.
+
+## Language and About
+
+Choose **English** or **简体中文** in **Settings → Language**. Changes apply immediately and are saved locally. The first launch follows the system language (Chinese or English). Menus, settings, browsing and viewer controls switch language; media filenames remain unchanged.
+
+The home screen uses the official SideByVR icon. **About** appears between **Settings** and **Exit**, with Google Play, website, YouTube channel, video guide and Shorts buttons. Android opens links in a browser or associated app; these links require network access.
+
+**Open-source licenses** in Settings is an informational, non-clickable item. License texts remain bundled in the APK; see LICENSE, THIRD_PARTY_NOTICES.md and licenses/ in this repository for the full notices.

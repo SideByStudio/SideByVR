@@ -22,6 +22,8 @@ Material Icons 由 Google 提供；当前 Flutter SDK 实际附带许可为 **CC
 
 ## 应用内查看与分发
 
-打开 **Settings → Open-source licenses** 查看 Flutter 生成的许可证列表。项目许可证及包声明自动收集；`pubspec.yaml` 的 `flutter.licenses` 额外加入 image/archive、Material Icons、Android Apache-2.0 组件、ExifInterface 提取声明和 protobuf 署名。
+设置中的“开源许可证”为不可点击的说明项。Flutter 生成的许可证仍随应用打包，第三方许可声明也保留在本文件和仓库许可文件中。项目许可证及包声明自动收集；`pubspec.yaml` 的 `flutter.licenses` 额外加入 image/archive、Material Icons、Android Apache-2.0 组件、ExifInterface 提取声明和 protobuf 署名。
 
 分发时保留适用声明。升级依赖、Flutter、构建模式或 ABI 后，需要刷新审计清单并检查 APK 声明。POM 和保留文本是依赖审阅证据，不是上游全部代码作者身份或设备媒体编解码专利许可的证明。
+
+新增 Flutter SDK 本地化包与 intl 0.20.3（BSD-3-Clause），其许可由 Flutter 自动收集。

@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import '../widgets/mirror_split_view.dart';
 import '../widgets/stereo_menu_row.dart';
 import 'saf_browser_page.dart';
 import 'settings_page.dart';
+import 'about_page.dart';
 import '../services/vr_menu_preferences.dart';
 
 class HomeMenuPage extends StatefulWidget {
@@ -41,29 +43,35 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
   List<_MenuAction> get _actions => [
     _MenuAction(
       icon: Icons.folder_open,
-      title: 'Select local folder',
-      subtitle: 'Open SBS images, videos and ZIP archives',
+      title: tr(context, 'Select local folder'),
+      subtitle: tr(context, 'Open SBS images, videos and ZIP archives'),
       onOpen: _chooseFolder,
     ),
     _MenuAction(
       icon: Icons.history,
-      title: 'Continue last folder',
+      title: tr(context, 'Continue last folder'),
       subtitle: _hasPreviousFolder
-          ? (_location?.currentName ?? 'Previous location')
-          : 'Select a folder first',
+          ? (_location?.currentName ?? tr(context, 'Previous location'))
+          : tr(context, 'Select a folder first'),
       enabled: _hasPreviousFolder,
       onOpen: _continueLastFolder,
     ),
     _MenuAction(
       icon: Icons.settings_outlined,
-      title: 'Settings',
-      subtitle: 'VR menu size and viewer preferences',
+      title: tr(context, 'Settings'),
+      subtitle: tr(context, 'VR menu size and viewer preferences'),
       onOpen: _openSettings,
     ),
     _MenuAction(
+      icon: Icons.info_outline,
+      title: tr(context, 'About'),
+      subtitle: tr(context, 'Links, videos and app information'),
+      onOpen: _openAbout,
+    ),
+    _MenuAction(
       icon: Icons.exit_to_app,
-      title: 'Exit',
-      subtitle: 'Close SideByVR Viewer',
+      title: tr(context, 'Exit'),
+      subtitle: tr(context, 'Close SideByVR Viewer'),
       onOpen: _exitApp,
     ),
   ];
@@ -89,11 +97,8 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
   Future<void> _applyDisplayMode() async {
     await SystemChrome.setPreferredOrientations(
       _isVrMode
-          ? const [
-              DeviceOrientation.landscapeLeft,
-              DeviceOrientation.landscapeRight,
-            ]
-          : const [DeviceOrientation.portraitUp],
+          ? [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]
+          : [DeviceOrientation.portraitUp],
     );
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   }
@@ -192,8 +197,8 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
         _hasPreviousFolder = true;
       });
       await _openBrowser(location);
-    } on PlatformException catch (error) {
-      _showError(error.message ?? 'Unable to select folder');
+    } on PlatformException {
+      if (mounted) _showError(tr(context, 'Unable to select folder'));
     } finally {
       if (mounted) {
         setState(() {
@@ -234,6 +239,18 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
         context,
       ).push(MaterialPageRoute(builder: (_) => const SettingsPage()));
       await _loadVrMenuScale();
+    } finally {
+      _acceptGamepadEvents = true;
+      if (mounted) await _restoreMenuInput();
+    }
+  }
+
+  Future<void> _openAbout() async {
+    _acceptGamepadEvents = false;
+    try {
+      await Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const AboutPage()));
     } finally {
       _acceptGamepadEvents = true;
       if (mounted) await _restoreMenuInput();
@@ -299,7 +316,7 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
             _buildMenu(),
             if (_busy)
               ColoredBox(
-                color: Color(0x88000000),
+                color: const Color(0x88000000),
                 child: _isVrMode
                     ? MirrorSplitView(builder: (_) => _buildBusyPanel())
                     : _buildBusyPanel(),
@@ -319,7 +336,7 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
           children: [
             const CircularProgressIndicator(),
             const SizedBox(height: 14),
-            Text(_busyMessage, textAlign: TextAlign.center),
+            Text(tr(context, _busyMessage), textAlign: TextAlign.center),
           ],
         ),
       ),
@@ -340,7 +357,7 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
               (_) => Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  '↑↓ Select  •  A/Y Open  •  LB ${_isVrMode ? 'Phone' : 'VR'}  •  B Exit',
+                  '↑↓ ${tr(context, 'Select')}  •  A/Y ${tr(context, 'Open')}  •  LB ${_isVrMode ? tr(context, 'Phone') : 'VR'}  •  B ${tr(context, 'Exit')}',
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: Colors.white54, fontSize: 10),
                 ),
@@ -364,22 +381,27 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
         )
       : builder(context);
 
-  Widget _buildHeader() => const Padding(
-    padding: EdgeInsets.only(bottom: 8),
+  Widget _buildHeader() => Padding(
+    padding: const EdgeInsets.only(bottom: 8),
     child: Column(
       children: [
-        Icon(Icons.vrpano_outlined, size: 42),
-        SizedBox(height: 4),
-        Text(
+        Image.asset(
+          'brand/sideby-vr-icon.png',
+          width: 64,
+          height: 64,
+          semanticLabel: 'SideByVR',
+        ),
+        const SizedBox(height: 4),
+        const Text(
           'SideByVR Viewer',
           style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 2),
+        const SizedBox(height: 2),
         Text(
-          'View your local SBS images and videos.',
+          tr(context, 'View your local SBS images and videos.'),
           maxLines: 2,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.lightBlueAccent,
             fontSize: 11,
             fontFamily: 'serif',
@@ -439,7 +461,7 @@ class _MenuAction {
   final bool enabled;
   final Future<void> Function() onOpen;
 
-  const _MenuAction({
+  _MenuAction({
     required this.icon,
     required this.title,
     required this.subtitle,

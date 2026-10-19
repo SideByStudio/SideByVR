@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _ViewerPageState extends State<ViewerPage> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations(const [
+    SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
@@ -169,14 +170,21 @@ class _ViewerPageState extends State<ViewerPage> with WidgetsBindingObserver {
     if (_boundaryDirection == direction && !_boundaryConfirm) {
       _boundaryConfirm = true;
       _showBoundaryToast(
-        'Enter ${direction < 0 ? 'previous' : 'next'} collection? Y/B',
+        tr(
+          context,
+          direction < 0
+              ? 'Enter previous collection? Y/B'
+              : 'Enter next collection? Y/B',
+        ),
       );
       return;
     }
     _boundaryDirection = direction;
     _boundaryConfirm = false;
     _showBoundaryToast(
-      direction < 0 ? 'This is the first image' : 'This is the last image',
+      direction < 0
+          ? tr(context, 'This is the first image')
+          : tr(context, 'This is the last image'),
     );
   }
 
@@ -449,11 +457,11 @@ class _ViewerPageState extends State<ViewerPage> with WidgetsBindingObserver {
         children: [
           const Icon(Icons.photo_library_outlined, size: 48),
           const SizedBox(height: 12),
-          const Text('No SBS media found'),
+          Text(tr(context, 'No SBS media found')),
           const SizedBox(height: 12),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Back'),
+            child: Text(tr(context, 'Back')),
           ),
         ],
       ),

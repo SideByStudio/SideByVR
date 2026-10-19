@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -106,14 +107,16 @@ class _StereoGifViewState extends State<StereoGifView> {
     if (_error != null) {
       return Center(
         child: Text(
-          'GIF 加载失败\n${widget.item.name}',
+          '${tr(context, 'GIF failed to load')}\n${widget.item.name}',
           textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.white70),
         ),
       );
     }
     final frame = _frame;
-    if (frame == null) return const Center(child: CircularProgressIndicator());
+    if (frame == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
     return CustomPaint(
       painter: _SbsGifPainter(
         frame: frame,
@@ -138,7 +141,7 @@ class _SbsGifPainter extends CustomPainter {
   final double panY;
   final double scale;
 
-  const _SbsGifPainter({
+  _SbsGifPainter({
     required this.frame,
     required this.zoom,
     required this.ipdOffset,

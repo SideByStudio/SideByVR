@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'package:flutter/material.dart';
 
 /// VR 查看器居中信息面板：三行（查看状态 / i·n / 操作提示）。
@@ -23,15 +24,21 @@ class ViewerInfoPanel extends StatelessWidget {
     final mediaLabel = switch (mode) {
       ViewerInfoMode.image => '',
       ViewerInfoMode.gif => 'GIF',
-      ViewerInfoMode.video => 'VIDEO',
+      ViewerInfoMode.video => tr(context, 'VIDEO'),
     };
     final controls = switch (mode) {
-      ViewerInfoMode.image =>
+      ViewerInfoMode.image => tr(
+        context,
         'LStick↑↓: Zoom  •  LStick←→: Switch  •  RStick: Pan  •  A/X: IPD  •  Y: Reset  •  B: Back  •  RB: UI',
-      ViewerInfoMode.gif =>
+      ),
+      ViewerInfoMode.gif => tr(
+        context,
         'LStick↑↓: Zoom  •  LStick←→: Switch  •  RStick: Pan  •  A/X: IPD  •  Y: Play/Pause  •  B: Back  •  RB: UI',
-      ViewerInfoMode.video =>
+      ),
+      ViewerInfoMode.video => tr(
+        context,
         'DPad←/→: Seek ±5s  •  DPad↑/↓: Volume  •  LStick↑↓: Zoom  •  RStick: Pan  •  A/X: IPD  •  Y: Play/Pause  •  B: Back  •  RB: UI',
+      ),
     };
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -44,7 +51,7 @@ class ViewerInfoPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            '$mediaLabel${mediaLabel.isEmpty ? '' : '  '}Zoom: ${zoom.toStringAsFixed(1)}x   IPD: ${ipdOffset.toStringAsFixed(0)}px',
+            '$mediaLabel${mediaLabel.isEmpty ? '' : '  '}${tr(context, 'Zoom')}: ${zoom.toStringAsFixed(1)}x   IPD: ${ipdOffset.toStringAsFixed(0)}px',
             style: const TextStyle(color: Colors.white, fontSize: 12),
           ),
           const SizedBox(height: 4),

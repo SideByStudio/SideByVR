@@ -22,3 +22,9 @@ This version has not been published. Physical-device regression and clean-checko
 - Release signing and downloadable release artifacts are not configured. Existing local Debug APKs are development artifacts.
 
 See [usage and format support](docs/usage.md) for exact behavior.
+
+### Interface update
+
+- Official home icon and About menu with official external links.
+- Persistent English / Simplified Chinese language selection across the app.
+- License settings item is informational and non-clickable; license texts remain bundled.

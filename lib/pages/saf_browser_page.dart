@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'dart:async';
 import 'dart:io';
 
@@ -22,7 +23,7 @@ class _BrowserEntry {
   final SafDocument? document;
   final int? count;
 
-  const _BrowserEntry({
+  _BrowserEntry({
     required this.type,
     required this.name,
     this.document,
@@ -59,8 +60,8 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
   late String _currentName;
   late List<String> _breadcrumbUris;
   late List<String> _breadcrumbNames;
-  List<_BrowserEntry> _entries = const [];
-  List<SafDocument> _currentMedia = const [];
+  List<_BrowserEntry> _entries = [];
+  List<SafDocument> _currentMedia = [];
   int _selectedIndex = 0;
   bool _loading = true;
   bool _includeUnmarkedImages = false;
@@ -93,11 +94,8 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
   Future<void> _applyDisplayMode() async {
     await SystemChrome.setPreferredOrientations(
       _isVrMode
-          ? const [
-              DeviceOrientation.landscapeLeft,
-              DeviceOrientation.landscapeRight,
-            ]
-          : const [DeviceOrientation.portraitUp],
+          ? [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]
+          : [DeviceOrientation.portraitUp],
     );
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   }
@@ -118,8 +116,8 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
     onPressed: _loading ? null : _toggleImageMode,
     child: Text(
       _includeUnmarkedImages
-          ? 'Ordinary images as SBS: ON — R to switch'
-          : 'Include ordinary images as SBS — R',
+          ? tr(context, 'Ordinary images as SBS: ON — R to switch')
+          : tr(context, 'Include ordinary images as SBS — R'),
     ),
   );
 
@@ -198,10 +196,11 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
           failure = rootError;
         }
       }
+      debugPrint('Folder load failed: $failure');
       if (!mounted) return;
       setState(() {
         _loading = false;
-        _error = 'Unable to open the selected folder.\n$failure';
+        _error = tr(context, 'Unable to open the selected folder.');
       });
     }
   }
@@ -353,7 +352,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
           if (!mounted) return;
           setState(() {
             _loading = false;
-            _error = 'Unable to open folder.\n$error';
+            _error = tr(context, 'Unable to open folder.');
           });
         }
       case _BrowserEntryType.zip:
@@ -449,7 +448,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
       if (!mounted) return;
       setState(() {
         _loading = false;
-        _error = 'Unable to open media.\n$error';
+        _error = tr(context, 'Unable to open media.');
       });
     } finally {
       _acceptGamepadEvents = true;
@@ -532,7 +531,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
       await _loadDirectory(parent.uri, parent.name);
     } catch (error) {
       if (!mounted) return;
-      setState(() => _error = 'Unable to open parent folder.\n$error');
+      setState(() => _error = tr(context, 'Unable to open parent folder.'));
     }
   }
 
@@ -571,7 +570,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
                 IconButton(
                   onPressed: _goToParent,
                   icon: const Icon(Icons.arrow_back),
-                  tooltip: 'Parent folder',
+                  tooltip: tr(context, 'Parent folder'),
                 ),
                 Expanded(
                   child: Text(
@@ -590,8 +589,8 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
             const Divider(height: 1),
             Expanded(child: _buildContent()),
             Text(
-              '↑↓ Select  •  A/Y Open  •  X Parent  •  RB Images as SBS  •  LB ${_isVrMode ? 'Phone' : 'VR'}  •  B Menu',
-              style: TextStyle(color: Colors.white54, fontSize: 10),
+              '↑↓ ${tr(context, 'Select')}  •  A/Y ${tr(context, 'Open')}  •  X ${tr(context, 'Parent')}  •  RB ${tr(context, 'Images as SBS')}  •  LB ${_isVrMode ? tr(context, 'Phone') : 'VR'}  •  B ${tr(context, 'Menu')}',
+              style: const TextStyle(color: Colors.white54, fontSize: 10),
               textAlign: TextAlign.center,
             ),
           ],
@@ -613,7 +612,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
                 IconButton(
                   onPressed: _goToParent,
                   icon: const Icon(Icons.arrow_back),
-                  tooltip: 'Parent folder',
+                  tooltip: tr(context, 'Parent folder'),
                 ),
                 Expanded(
                   child: Text(
@@ -642,12 +641,15 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
             _stereo(() => _buildErrorPanel())
           else if (_entries.isEmpty)
             _stereo(
-              () => const Padding(
-                padding: EdgeInsets.all(32),
+              () => Padding(
+                padding: const EdgeInsets.all(32),
                 child: Text(
-                  'No subfolders, ZIP archives,\nor matching media found.',
+                  tr(
+                    context,
+                    'No subfolders, ZIP archives,\nor matching media found.',
+                  ),
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white60),
+                  style: const TextStyle(color: Colors.white60),
                 ),
               ),
             )
@@ -661,7 +663,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
             () => Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                '↑↓ Select  •  A/Y Open  •  X Parent  •  RB Images as SBS  •  LB Phone  •  B Menu',
+                '↑↓ ${tr(context, 'Select')}  •  A/Y ${tr(context, 'Open')}  •  X ${tr(context, 'Parent')}  •  RB ${tr(context, 'Images as SBS')}  •  LB ${tr(context, 'Phone')}  •  B ${tr(context, 'Menu')}',
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white54, fontSize: 10),
               ),
@@ -686,7 +688,7 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
         style: const TextStyle(color: Colors.white70, fontSize: 12),
       ),
       const SizedBox(height: 12),
-      FilledButton(onPressed: _loadCurrent, child: const Text('Retry')),
+      FilledButton(onPressed: _loadCurrent, child: Text(tr(context, 'Retry'))),
     ],
   );
 
@@ -703,8 +705,16 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
         dense: true,
         selected: selected,
         leading: Icon(icon, color: selected ? Colors.white : Colors.amber),
-        title: Text(entry.name, maxLines: 1, overflow: TextOverflow.ellipsis),
-        subtitle: entry.count == null ? null : Text('${entry.count} items'),
+        title: Text(
+          entry.type == _BrowserEntryType.currentMedia
+              ? tr(context, entry.name)
+              : entry.name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: entry.count == null
+            ? null
+            : Text('${entry.count} ${tr(context, 'items')}'),
         onTap: () {
           setState(() => _selectedIndex = index);
           _openEntry(entry);
@@ -735,18 +745,21 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
                 style: const TextStyle(color: Colors.white70, fontSize: 12),
               ),
               const SizedBox(height: 12),
-              FilledButton(onPressed: _loadCurrent, child: const Text('Retry')),
+              FilledButton(
+                onPressed: _loadCurrent,
+                child: Text(tr(context, 'Retry')),
+              ),
             ],
           ),
         ),
       );
     }
     if (_entries.isEmpty) {
-      return const Center(
+      return Center(
         child: Text(
-          'No subfolders, ZIP archives,\nor matching media found.',
+          tr(context, 'No subfolders, ZIP archives,\nor matching media found.'),
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white60),
+          style: const TextStyle(color: Colors.white60),
         ),
       );
     }
@@ -760,7 +773,9 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
           _BrowserEntryType.directory => Icons.folder_outlined,
           _BrowserEntryType.zip => Icons.archive_outlined,
         };
-        final subtitle = entry.count == null ? null : '${entry.count} items';
+        final subtitle = entry.count == null
+            ? null
+            : '${entry.count} ${tr(context, 'items')}';
         return Card(
           color: selected ? Colors.blue.shade700 : Colors.grey.shade900,
           child: ListTile(
@@ -768,7 +783,9 @@ class _SafBrowserPageState extends State<SafBrowserPage> {
             selected: selected,
             leading: Icon(icon, color: selected ? Colors.white : Colors.amber),
             title: Text(
-              entry.name,
+              entry.type == _BrowserEntryType.currentMedia
+                  ? tr(context, entry.name)
+                  : entry.name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),

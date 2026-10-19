@@ -1,3 +1,4 @@
+import '../l10n/app_language.dart';
 import 'dart:async';
 import 'dart:io';
 
@@ -136,7 +137,7 @@ class _StereoVideoViewState extends State<StereoVideoView> {
     if (_error != null) {
       return Center(
         child: Text(
-          '视频加载失败\n${widget.item.name}',
+          '${tr(context, 'Video failed to load')}\n${widget.item.name}',
           textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.white70),
         ),

@@ -66,3 +66,11 @@
 4. 在 Viewer 授权下载目录。使用 `.sbs.jpg` 文件名，或开启普通图片 SBS 显示；该开关只影响文件选择，不会生成立体内容。
 
 在线转换是可选的独立服务，适用网站的[定价](https://sideby.cc.cd/zh/pricing/)、[服务条款](https://sideby.cc.cd/zh/terms/)与[隐私政策](https://sideby.cc.cd/zh/privacy/)。本地查看无需账号或 Credit。
+
+## 语言与关于
+
+在 **设置 → 语言** 中选择 **简体中文** 或 **English**，选择会立即生效并保存在本机。首次启动根据系统语言选择中文或英文。菜单、设置、浏览器与查看器操作提示随语言切换，媒体文件名保持原样。
+
+主页使用官方 SideByVR 图标，**关于** 位于**设置**与**退出**之间。关于页提供 Google Play、官网、YouTube 频道、使用指南和竖屏短片入口；点击后由 Android 的浏览器或对应应用打开，需要网络连接。
+
+设置中的**开源许可证**仅显示说明，处于不可点击状态。许可证文本继续打包在 APK 中，完整声明见仓库 LICENSE、THIRD_PARTY_NOTICES_zh.md 和 licenses/。
