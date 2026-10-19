@@ -1,7 +1,7 @@
 name: sidebyvr
 description: "SideByVR local SBS media viewer"
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.1.1+2
 
 environment:
   sdk: ^3.12.1

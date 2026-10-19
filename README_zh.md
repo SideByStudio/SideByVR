@@ -9,7 +9,7 @@
 [English](README.md) | 简体中文
 
 <p align="center">
-  <a href="VERSION"><img src="https://img.shields.io/badge/version-v0.1.0-2563eb?style=flat-square" alt="Version 0.1.0"></a>
+  <a href="VERSION"><img src="https://img.shields.io/badge/version-v0.1.1-2563eb?style=flat-square" alt="Version 0.1.1"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-f97316?style=flat-square" alt="License Apache-2.0"></a>
 </p>
 
@@ -20,10 +20,10 @@
 
 
 <p align="center">
-  <a href="https://github.com/SideByStudio/sidebyvr/releases">
+  <a href="https://github.com/SideByStudio/sidebyvr/releases/tag/v0.1.1">
     <img
-      src="https://img.shields.io/badge/Android%20APK-v0.1.0-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
-      alt="Android APK — v0.1.0"
+      src="https://img.shields.io/badge/Android%20APK-v0.1.1-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
+      alt="Android APK — v0.1.1"
     >
   </a>
   <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=zh-CN">
@@ -45,7 +45,7 @@
 
 SideByVR 是 Android 本地 SBS（左右并排）图片与视频查看器。Viewer 是**完全独立、免费、开源的本地查看工具**，无需账号、订阅或购买转换服务。在线 SBS 转换网站是可选的独立云端服务，不是 Viewer 的运行依赖。
 
-首个公开预览版正在准备发布。发布公告与 APK 下载将放在上方 GitHub Releases 页面；独立的 SideByVR 商店版可通过 Google Play 按钮下载。
+预览版 v0.1.1 已发布，可在 GitHub Releases 下载本地构建、正式签名的 ARM64 APK 和校验文件；设备兼容性仍在测试中。独立的 SideByVR 商店版可通过 Google Play 按钮下载。
 
 **100% 纯本地离线运行，无联网权限，不收集任何相册隐私。** 此说明针对正式发布的 Viewer APK：应用在本机处理和缓存授权媒体，不上传图片、视频或浏览记录。外部链接会打开浏览器；这些网站以及系统选择器中的云端文档提供方具有各自的联网行为和隐私政策。Flutter Debug/Profile 构建可能为开发工具包含联网权限。
 

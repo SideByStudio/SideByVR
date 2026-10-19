@@ -9,21 +9,21 @@
 English | [简体中文](README_zh.md)
 
 <p align="center">
-  <a href="VERSION"><img src="https://img.shields.io/badge/version-v0.1.0-2563eb?style=flat-square" alt="Version 0.1.0"></a>
+  <a href="VERSION"><img src="https://img.shields.io/badge/version-v0.1.1-2563eb?style=flat-square" alt="Version 0.1.1"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-f97316?style=flat-square" alt="License Apache-2.0"></a>
 </p>
 
 <p align="center">
   <strong>Download for Android</strong><br>
-  <sub>Open-source Viewer APK v0.1.0 · SideByVR is available on Google Play</sub>
+  <sub>Open-source Viewer APK v0.1.1 · SideByVR is available on Google Play</sub>
 </p>
 
 
 <p align="center">
-  <a href="https://github.com/SideByStudio/sidebyvr/releases">
+  <a href="https://github.com/SideByStudio/sidebyvr/releases/tag/v0.1.1">
     <img
-      src="https://img.shields.io/badge/Android%20APK-v0.1.0-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
-      alt="Android APK — v0.1.0"
+      src="https://img.shields.io/badge/Android%20APK-v0.1.1-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
+      alt="Android APK — v0.1.1"
     >
   </a>
   <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=en">
@@ -49,7 +49,7 @@ SideByVR turns an Android phone into a local viewer for existing side-by-side (S
 
 **100% local, offline viewing: no Internet permission and no collection of your private photos.** The distributed release Viewer processes and caches authorized media on your device and does not upload images, videos or browsing history. External links open in your browser; those websites and any cloud-backed Android document providers have their own network behavior and privacy policies. Flutter debug/profile builds may include Internet permission for development tools.
 
-The first public preview is being prepared. Release announcements and APK downloads will be published on the GitHub Releases page linked above. The separate SideByVR app is available on Google Play.
+Preview v0.1.1 is available on GitHub Releases. Download the locally built, release-signed ARM64 APK and checksum; device compatibility testing is ongoing. The separate SideByVR app is available on Google Play.
 
 **Need to turn a 2D image into stereo?** Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; see [website pricing](https://sideby.cc.cd/pricing/). The online service has its own [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/).
 

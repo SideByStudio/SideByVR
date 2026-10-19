@@ -64,7 +64,7 @@ class AboutPage extends StatelessWidget {
           Text(
             tr(
               context,
-              'Open-source Viewer APK coming soon · SideByVR is available on Google Play',
+              'Open-source Viewer APK available on GitHub · SideByVR is available on Google Play',
             ),
             textAlign: TextAlign.center,
           ),

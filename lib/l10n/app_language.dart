@@ -97,8 +97,8 @@ const _chinese = <String, String>{
   "Shorts preview": "竖屏宣传短片",
   "Unable to open link. Please install a browser or try again.":
       "无法打开链接，请安装浏览器或稍后重试。",
-  "Open-source Viewer APK coming soon · SideByVR is available on Google Play":
-      "开源 Viewer APK 即将发布 · SideByVR 已上架 Google Play",
+  "Open-source Viewer APK available on GitHub · SideByVR is available on Google Play":
+      "开源 Viewer APK 已在 GitHub 发布 · SideByVR 已上架 Google Play",
   "Enter previous collection? Y/B": "进入上一个图集？Y 确认 / B 取消",
   "Enter next collection? Y/B": "进入下一个图集？Y 确认 / B 取消",
   "LStick↑↓: Zoom  •  LStick←→: Switch  •  RStick: Pan  •  A/X: IPD  •  Y: Reset  •  B: Back  •  RB: UI":

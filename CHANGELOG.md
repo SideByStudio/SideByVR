@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — Preview
+
+- Update app version to 0.1.1+2 and release download links.
+- Replace outdated release preparation text in README and About.
+- Distribute a locally built APK; physical-device validation remains pending.
+
 English | [简体中文](CHANGELOG_zh.md)
 
 ## Unreleased — 0.1.0 preview
