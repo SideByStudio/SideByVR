@@ -15,7 +15,7 @@
 
 <p align="center">
   <strong>下载 Android 安装包</strong><br>
-  <sub>首个版本准备中 · APK 下载即将开放</sub>
+  <sub>开源 Viewer APK 准备中 · SideByVR 已上架 Google Play</sub>
 </p>
 
 <!-- Release URL intentionally empty until the public repository is selected. -->
@@ -26,13 +26,20 @@
       alt="下载 Android APK — 发布准备中"
     >
   </a>
+  <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=zh-CN">
+    <img src="https://img.shields.io/badge/Google%20Play-下载应用-34A853?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white" alt="在 Google Play 下载 SideByVR">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://sideby.cc.cd/">🌐 官方网站</a>
 </p>
 
 </div>
 
 SideByVR 是一个 Android 本地 SBS（左右并排）图片与视频查看器。选择文件夹、浏览图集，再通过手柄调整双目画面。本地查看无需账号、云端 API 配置或付费积分。
 
-项目正在准备首个公开预览版。当前代码已通过 36 项自动化测试和 ARM64 Debug 构建，干净检出构建与真机回归仍待完成；暂未提供公开下载安装包。
+项目正在准备首个公开预览版。当前代码已通过 36 项自动化测试和 ARM64 Debug 构建，干净检出构建与真机回归仍待完成；本开源 Viewer 暂未提供独立 APK；已上架的 SideByVR 应用可通过上方 Google Play 按钮下载。
 
 **需要把 2D 图片转成立体图？** 前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；付费方案见[网站定价](https://sideby.cc.cd/zh/pricing/)。在线服务适用其[服务条款](https://sideby.cc.cd/zh/terms/)及[隐私政策](https://sideby.cc.cd/zh/privacy/)。
 

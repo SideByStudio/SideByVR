@@ -15,7 +15,7 @@ English | [简体中文](README_zh.md)
 
 <p align="center">
   <strong>Download for Android</strong><br>
-  <sub>First release in preparation · APK download coming soon</sub>
+  <sub>Open-source Viewer APK coming soon · SideByVR is available on Google Play</sub>
 </p>
 
 <!-- Release URL intentionally empty until the public repository is selected. -->
@@ -26,13 +26,20 @@ English | [简体中文](README_zh.md)
       alt="Android APK — coming soon"
     >
   </a>
+  <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=en">
+    <img src="https://img.shields.io/badge/Google%20Play-Get%20the%20app-34A853?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white" alt="Get SideByVR on Google Play">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://sideby.cc.cd/">🌐 Official website</a>
 </p>
 
 </div>
 
 SideByVR turns an Android phone into a local viewer for existing side-by-side (SBS) images and videos. Select a folder, browse your collections, and use a gamepad to adjust the view. Local viewing requires no account, cloud API configuration or paid credits.
 
-The project is preparing its first public preview. The current code has passed 36 automated tests and an ARM64 Debug build; clean-checkout and physical-device validation are still pending. An installable public release is not available yet.
+The project is preparing its first public preview. The current code has passed 36 automated tests and an ARM64 Debug build; clean-checkout and physical-device validation are still pending. A standalone APK for this open-source Viewer is not available yet. The released SideByVR app is available through the Google Play button above.
 
 **Need to turn a 2D image into stereo?** Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; see [website pricing](https://sideby.cc.cd/pricing/). The online service has its own [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/).
 
