@@ -15,15 +15,15 @@
 
 <p align="center">
   <strong>下载 Android 安装包</strong><br>
-  <sub>开源 Viewer APK 准备中 · SideByVR 已上架 Google Play</sub>
+  <sub>开源 Viewer APK 已发布到 GitHub Releases · SideByVR 已上架 Google Play</sub>
 </p>
 
-<!-- Release URL intentionally empty until the public repository is selected. -->
+
 <p align="center">
-  <a href="">
+  <a href="https://github.com/sidebyvr/sidebyvr/releases/latest/download/SideByVR-viewer-0.1.0-arm64.apk">
     <img
-      src="https://img.shields.io/badge/Android%20APK-Coming%20soon-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
-      alt="下载 Android APK — 发布准备中"
+      src="https://img.shields.io/badge/Android%20APK-%E4%B8%8B%E8%BD%BD-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
+      alt="下载 Android APK"
     >
   </a>
   <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=zh-CN">
@@ -33,7 +33,7 @@
 
 <p align="center">
   <a href="https://sideby.cc.cd/">🌐 官方网站</a>
-  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw">YouTube · @SideByVR</a>
+  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw"><img src="https://img.shields.io/badge/YouTube-%40SideByVR-FF0000?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube · @SideByVR"></a>
   · <a href="https://www.youtube.com/watch?v=qj0_QTt65IU">▶ 使用指南</a>
   · <a href="https://www.youtube.com/shorts/0pdG-4gmOvk">📱 竖屏宣传短片</a>
 </p>
@@ -42,7 +42,7 @@
 
 SideByVR 是一个 Android 本地 SBS（左右并排）图片与视频查看器。选择文件夹、浏览图集，再通过手柄调整双目画面。本地查看无需账号、云端 API 配置或付费积分。
 
-项目正在准备首个公开预览版。当前代码已通过 36 项自动化测试和 ARM64 Debug 构建，干净检出构建与真机回归仍待完成；本开源 Viewer 暂未提供独立 APK；已上架的 SideByVR 应用可通过上方 Google Play 按钮下载。
+首个公开预览版可通过上方 GitHub Releases 下载按钮获取。当前代码已通过 36 项自动化测试和 ARM64 Debug 构建，干净检出构建与真机回归仍待完成；本开源 Viewer 暂未提供独立 APK；已上架的 SideByVR 应用可通过上方 Google Play 按钮下载。
 
 **需要把 2D 图片转成立体图？** 前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；付费方案见[网站定价](https://sideby.cc.cd/zh/pricing/)。在线服务适用其[服务条款](https://sideby.cc.cd/zh/terms/)及[隐私政策](https://sideby.cc.cd/zh/privacy/)。
 

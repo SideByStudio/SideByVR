@@ -15,15 +15,15 @@ English | [简体中文](README_zh.md)
 
 <p align="center">
   <strong>Download for Android</strong><br>
-  <sub>Open-source Viewer APK coming soon · SideByVR is available on Google Play</sub>
+  <sub>Open-source Viewer APK is available in GitHub Releases · SideByVR is available on Google Play</sub>
 </p>
 
-<!-- Release URL intentionally empty until the public repository is selected. -->
+
 <p align="center">
-  <a href="">
+  <a href="https://github.com/sidebyvr/sidebyvr/releases/latest/download/SideByVR-viewer-0.1.0-arm64.apk">
     <img
-      src="https://img.shields.io/badge/Android%20APK-Coming%20soon-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
-      alt="Android APK — coming soon"
+      src="https://img.shields.io/badge/Android%20APK-Download-2563eb?style=for-the-badge&amp;logo=android&amp;logoColor=white"
+      alt="Download Android APK"
     >
   </a>
   <a href="https://play.google.com/store/apps/details?id=com.sidebyvr.player&amp;hl=en">
@@ -33,7 +33,7 @@ English | [简体中文](README_zh.md)
 
 <p align="center">
   <a href="https://sideby.cc.cd/">🌐 Official website</a>
-  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw">YouTube · @SideByVR</a>
+  · <a href="https://www.youtube.com/channel/UCjAYWJyr2qykGEuMqm6Fsjw"><img src="https://img.shields.io/badge/YouTube-%40SideByVR-FF0000?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube · @SideByVR"></a>
   · <a href="https://www.youtube.com/watch?v=qj0_QTt65IU">▶ Video guide</a>
   · <a href="https://www.youtube.com/shorts/0pdG-4gmOvk">📱 Shorts preview</a>
 </p>
@@ -42,7 +42,7 @@ English | [简体中文](README_zh.md)
 
 SideByVR turns an Android phone into a local viewer for existing side-by-side (SBS) images and videos. Select a folder, browse your collections, and use a gamepad to adjust the view. Local viewing requires no account, cloud API configuration or paid credits.
 
-The project is preparing its first public preview. The current code has passed 36 automated tests and an ARM64 Debug build; clean-checkout and physical-device validation are still pending. A standalone APK for this open-source Viewer is not available yet. The released SideByVR app is available through the Google Play button above.
+The first public preview is available from the GitHub Releases download above. The current code has passed 36 automated tests and an ARM64 Debug build; clean-checkout and physical-device validation are still pending. A standalone APK for this open-source Viewer is not available yet. The released SideByVR app is available through the Google Play button above.
 
 **Need to turn a 2D image into stereo?** Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; see [website pricing](https://sideby.cc.cd/pricing/). The online service has its own [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/).
 
