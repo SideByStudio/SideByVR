@@ -40,11 +40,15 @@
 
 </div>
 
-SideByVR 是一个 Android 本地 SBS（左右并排）图片与视频查看器。选择文件夹、浏览图集，再通过手柄调整双目画面。本地查看无需账号、云端 API 配置或付费积分。
+SideByVR 是 Android 本地 SBS（左右并排）图片与视频查看器。Viewer 是**完全独立、免费、开源的本地查看工具**，无需账号、订阅或购买转换服务。在线 SBS 转换网站是可选的独立云端服务，不是 Viewer 的运行依赖。
 
 首个公开预览版正在准备发布。发布公告与 APK 下载将放在上方 GitHub Releases 页面；独立的 SideByVR 商店版可通过 Google Play 按钮下载。
 
+**100% 纯本地离线运行，无联网权限，不收集任何相册隐私。** 此说明针对正式发布的 Viewer APK：应用在本机处理和缓存授权媒体，不上传图片、视频或浏览记录。外部链接会打开浏览器；这些网站以及系统选择器中的云端文档提供方具有各自的联网行为和隐私政策。Flutter Debug/Profile 构建可能为开发工具包含联网权限。
+
 **需要把 2D 图片转成立体图？** 前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；付费方案见[网站定价](https://sideby.cc.cd/zh/pricing/)。在线服务适用其[服务条款](https://sideby.cc.cd/zh/terms/)及[隐私政策](https://sideby.cc.cd/zh/privacy/)。
+
+该网站是可选的独立云端服务，需要上传图片，不属于上述 Viewer 离线隐私承诺的范围。
 
 ## ✨ 功能特性
 
@@ -132,6 +136,9 @@ licenses/        # 分发时需保留的补充声明
 ```
 
 ## 📄 开源协议
+
+Copyright 2026 SideByStudio contributors.
+
 
 应用代码、原创启动图标与生成的样例媒体均采用 **[Apache License 2.0](LICENSE)**。图标母版与说明见 [brand](brand/README_zh.md)。
 
