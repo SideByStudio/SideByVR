@@ -49,10 +49,6 @@ SideByVR 是 Android 本地 SBS（左右并排）图片与视频查看器。View
 
 **100% 纯本地离线运行，无联网权限，不收集任何相册隐私。** 此说明针对正式发布的 Viewer APK：应用在本机处理和缓存授权媒体，不上传图片、视频或浏览记录。外部链接会打开浏览器；这些网站以及系统选择器中的云端文档提供方具有各自的联网行为和隐私政策。Flutter Debug/Profile 构建可能为开发工具包含联网权限。
 
-**需要把 2D 图片转成立体图？** 前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；付费方案见[网站定价](https://sideby.cc.cd/zh/pricing/)。在线服务适用其[服务条款](https://sideby.cc.cd/zh/terms/)及[隐私政策](https://sideby.cc.cd/zh/privacy/)。
-
-该网站是可选的独立云端服务，需要上传图片，不属于上述 Viewer 离线隐私承诺的范围。
-
 ## ✨ 功能特性
 
 - 🖼️ **SBS 图片查看** — 打开包含左右眼画面的 JPG、JPEG、PNG 图片，文件名匹配不区分大小写。
@@ -97,6 +93,19 @@ SideByVR 是 Android 本地 SBS（左右并排）图片与视频查看器。View
 | [更新日志](CHANGELOG_zh.md) | 用户可见变更及当前预览版状态 |
 | [贡献指南](CONTRIBUTING_zh.md) | 贡献范围、验证要求与来源说明 |
 | [第三方许可声明](THIRD_PARTY_NOTICES_zh.md) | 依赖许可证与随包署名声明 |
+
+## 🖼️ SBS Image
+
+SBS（Side-by-Side，左右并排）图片格式是一种简单、通用的 VR 图片格式。不同于 VR180 等格式，它非常简单直观，并且占用存储空间小。
+
+**如何获得 SBS 图片（2D 转 3D）**
+
+1. **SideByVR 在线转换网站**
+前往 [SideByVR 在线转换网站](https://sideby.cc.cd/zh/)，用 Google 账号登录，新账号获赠 10 Credits。上传自己的图片，下载生成的 SBS 原图，再用本地 Viewer 打开。每张成功生成的图片消耗 1 Credit；
+
+2. **社区工具**
+另一种方式是通过社区开源工具生成，例如 [ComfyUI_SSStereoscope](https://github.com/SamSeenX/ComfyUI_SSStereoscope)。
+
 
 ## 🚀 开发运行
 

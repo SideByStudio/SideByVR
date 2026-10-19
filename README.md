@@ -51,8 +51,6 @@ SideByVR turns an Android phone into a local viewer for existing side-by-side (S
 
 Preview v0.1.1 is available on GitHub Releases. Download the locally built, release-signed ARM64 APK and checksum; device compatibility testing is ongoing. The separate SideByVR app is available on Google Play.
 
-**Need to turn a 2D image into stereo?** Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; see [website pricing](https://sideby.cc.cd/pricing/). The online service has its own [terms](https://sideby.cc.cd/terms/) and [privacy policy](https://sideby.cc.cd/privacy/).
-
 ## ✨ Features
 
 - 🖼️ **SBS image viewing** — Open JPG, JPEG and PNG images containing left/right eye views. Filename matching is case-insensitive.
@@ -97,6 +95,18 @@ The current viewer assumes **Full-SBS, left image for the left eye**. Half-SBS c
 | [Changelog](CHANGELOG.md) | User-visible changes and current preview status |
 | [Contributing](CONTRIBUTING.md) | Contribution scope, validation and source attribution |
 | [Third-party notices](THIRD_PARTY_NOTICES.md) | Dependency licenses and bundled acknowledgments |
+
+## 🖼️ SBS Image
+
+SBS (Side-by-Side) image format is a simple and general VR image format. Unlike VR180 or other formats, it is straightforward to use, lightweight, and takes up minimal storage size.
+
+**How to Get SBS Image:(2D image to 3D)**
+
+1. **SideByVR Online Converter**
+Visit the [SideByVR online converter](https://sideby.cc.cd/), sign in with Google, and receive 10 welcome Credits on a new account. Upload your image, download the generated SBS original, then open it in this local viewer. Each successful image costs 1 Credit; 
+
+2. **Community Tools**
+Alternatively, you can generate SBS images using community tools such as [ComfyUI_SSStereoscope](https://github.com/SamSeenX/ComfyUI_SSStereoscope).
 
 ## 🚀 Development
 
